@@ -1,0 +1,7 @@
+# Python stuff
+**/src/__pycache__/
+**/venv/
+
+# Don't track inputs
+# Wouldn't want to make them reverse-engineerable now would we?
+**/input/
