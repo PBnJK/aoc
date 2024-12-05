@@ -2,12 +2,14 @@ import src.day01 as day01
 import src.day02 as day02
 import src.day03 as day03
 import src.day04 as day04
+import src.day05 as day05
 
 DAYS: list = [
     day01,
     day02,
     day03,
     day04,
+    day05,
 ]
 
 for count, day in enumerate(DAYS, start=1):
