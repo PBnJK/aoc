@@ -3,6 +3,7 @@
 from src import util
 
 rules, pages = util.input_single("day05.txt").split("\n\n")
+
 rules = rules.split("\n")
 pages = pages.split("\n")
 
