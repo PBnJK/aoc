@@ -12,9 +12,9 @@ for rule ∈ r
 	push!(rules[f], t)
 end
 
+function validate()
+	valid, invalid = [], []
 
-function star1()
-	valid = []
 	for pages ∈ p
 		visited = Set()
         good = true
@@ -29,49 +29,24 @@ function star1()
             push!(visited, page)
 		end
 
-		if good push!(valid, pages) end
+		if good push!(valid, pages) else push!(invalid, pages) end
 	end
+
+	return valid, invalid
+end
+
+function star1()
+	valid, _ = validate()
 
 	total = sum(parse(Int64, x[length(x) ÷ 2 + 1]) for x ∈ valid)
 	println("- $total")
 end
 
 function star2()
-	invalid = []
-	for pages ∈ p
-		visited = Set()
-        bad = false
+	_, invalid = validate()
 
-		pages = split(pages, ",")
-        for page ∈ pages
-			if !isdisjoint(rules[page], visited)
-                bad = true
-                break
-			end
-
-            push!(visited, page)
-		end
-
-		if bad push!(invalid, pages) end
-	end
-
-	for v ∈ invalid
-        swaps = 0
-        while true
-			for i=1:length(v)-1
-                if v[i] ∈ rules[v[i + 1]]
-                    v[i], v[i + 1] = v[i + 1], v[i]
-                    swaps += 1
-				end
-			end
-
-            if swaps == 0
-                break
-			end
-
-            swaps = 0
-		end
-	end
+	compare(a, b) = a ∈ rules[b]
+	sort!.(invalid, lt=compare)
 
 	total = sum(parse(Int64, x[length(x) ÷ 2 + 1]) for x ∈ invalid)
 	println("- $total")
