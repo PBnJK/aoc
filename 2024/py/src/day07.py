@@ -2,8 +2,6 @@
 
 from src import util
 
-# from itertools import product, chain, zip_longest
-
 inp = [
     (int(y[0]), [int(z) for z in y[1].split()])
     if (y := x.strip().split(": "))
@@ -26,12 +24,12 @@ def star1():
 
             s = stack.copy()
             s.append(lhs + rhs)
-            if proc(s) != 0:
+            if proc(s) == n:
                 return n
 
             s = stack.copy()
             s.append(lhs * rhs)
-            if proc(s) != 0:
+            if proc(s) == n:
                 return n
 
             return 0
@@ -55,17 +53,17 @@ def star2():
 
             s = stack.copy()
             s.append(lhs + rhs)
-            if proc(s) != 0:
+            if proc(s) == n:
                 return n
 
             s = stack.copy()
             s.append(lhs * rhs)
-            if proc(s) != 0:
+            if proc(s) == n:
                 return n
 
             s = stack.copy()
             s.append(int(str(lhs) + str(rhs)))
-            if proc(s) != 0:
+            if proc(s) == n:
                 return n
 
             return 0
