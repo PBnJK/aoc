@@ -77,3 +77,6 @@ def star2():
             swaps = 0
 
     return sum(int(x[(len(x) - 1) // 2]) for x in invalid)
+
+
+util.run_day(5, star1, star2)

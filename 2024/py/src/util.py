@@ -1,4 +1,5 @@
 import os
+from typing import Callable
 
 
 def get_input_path(path: str) -> str:
@@ -24,3 +25,9 @@ def input_lines(path: str) -> list[str]:
             lines.append(line.strip())
 
         return lines
+
+
+def run_day(day: int, s1: Callable, s2: Callable):
+    print(f"Day {day:02}:")
+    print(f"  - STAR 1: {s1()}")
+    print(f"  - STAR 2: {s2()}")

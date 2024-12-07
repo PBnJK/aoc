@@ -42,3 +42,6 @@ def star2():
                 break
 
     return safe
+
+
+util.run_day(2, star1, star2)

@@ -38,3 +38,6 @@ def star2():
         sum += a * id2.count(a)
 
     return sum
+
+
+util.run_day(1, star1, star2)

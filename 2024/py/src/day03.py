@@ -28,3 +28,6 @@ def star2():
             total += int(m[1]) * int(m[2])
 
     return total
+
+
+util.run_day(3, star1, star2)

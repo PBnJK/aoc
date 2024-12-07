@@ -98,3 +98,6 @@ def star2():
             )
 
     return total
+
+
+util.run_day(4, star1, star2)
