@@ -17,10 +17,14 @@ def star1():
         m.reverse()
 
         def proc(stack):
-            if len(stack) == 1:
-                return n if stack.pop() == n else 0
+            lhs = stack.pop()
+            if lhs > n:
+                return 0
 
-            lhs, rhs = stack.pop(), stack.pop()
+            if not stack:
+                return n if lhs == n else 0
+
+            rhs = stack.pop()
 
             s = stack.copy()
             s.append(lhs + rhs)
@@ -46,10 +50,14 @@ def star2():
         m.reverse()
 
         def proc(stack):
-            if len(stack) == 1:
-                return n if stack.pop() == n else 0
+            lhs = stack.pop()
+            if lhs > n:
+                return 0
 
-            lhs, rhs = stack.pop(), stack.pop()
+            if not stack:
+                return n if lhs == n else 0
+
+            rhs = stack.pop()
 
             s = stack.copy()
             s.append(lhs + rhs)
